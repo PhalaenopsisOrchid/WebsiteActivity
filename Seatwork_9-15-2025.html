@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Seatwork</title>
+</head>
+<body>
+  
+  <h1>JavaScript Seatwork</h1>
+
+  <h2>1. Button Click</h2>
+  <button onclick="sayHello()">Click Me</button>
+
+  <h2>2. Image Click</h2>
+  <img width="300" height="200" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/spongebob-1592135040.jpeg%3fcrop%3d0.967xw:0.922xh%3b0.0326xw%2c0%26resize%3d1200:*" onclick="imageClicked()" alt="Sample Image">
+
+  <h2>3. Hover Over Text</h2>
+  <p onmouseover="hoverText()" id="hoverPara">Hover over this text</p>
+
+  <h2>4. Typing in Input</h2>
+  <input type="text" oninput="showTyping()" placeholder="Type something..." />
+  <p id="typedText"></p>
+
+  <h2>5. Dropdown Select</h2>
+  <select onchange="selectChanged(this)">
+    <option value="">-- Choose --</option>
+    <option value="Red">Red</option>
+    <option value="Green">Green</option>
+    <option value="Blue">Blue</option>
+  </select>
+
+  <p id="result"></p>
+
+  <script>
+    function sayHello() {
+      alert("Hello from the button!");
+    }
+
+    function imageClicked() {
+      alert("Spongebob says hi!");
+    }
+
+    function hoverText() {
+      document.getElementById("hoverPara").innerText = "Why did you do it?!";
+    }
+
+    function showTyping() {
+      const input = event.target.value;
+      document.getElementById("typedText").innerText = "You typed: " + input;
+    }
+
+    function selectChanged(selectElement) {
+      document.getElementById("result").innerText = "You selected: " + selectElement.value;
+    }
+  </script>
+
+</body>
+</html>
