@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Travel Blog</title>
   <style>
     body {
@@ -12,7 +12,6 @@
       padding: 0;
       color: #2c2c2c;
     }
- 
     .blog-name {
       font-size: 42px;
       font-weight: bold;
@@ -23,40 +22,37 @@
       text-shadow: 2px 2px #ffffff, 4px 4px #999;
       text-align: center;
     }
- 
     .navbar {
       background-color: #1c1c1c;
       padding: 14px 0;
       box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
       text-align: center;
     }
- 
-    .button {
+    .button, .js-button {
       background-color: #ffae78;
       color: #2b2b2b;
       padding: 12px 22px;
-      margin: 0 10px;
+      margin: 10px 10px 20px 0;
       font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
       transition: background 0.3s, color 0.3s, transform 0.2s;
+      border: none;
+      user-select: none;
     }
- 
-    .button:hover {
+    .button:hover, .js-button:hover {
       background-color: #ffb3c6;
       color: #2b2b2b;
       transform: translateY(-3px);
     }
- 
     .content {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
       text-align: left;
     }
- 
     .quote-title {
       font-size: 1.3em;
       font-weight: bold;
@@ -64,13 +60,11 @@
       margin: 10px 0;
       color: #1c1c1c;
     }
- 
     p {
       margin-bottom: 20px;
       line-height: 1.7;
       color: #333;
     }
- 
     .media-left {
       width: 350px;
       height: 230px;
@@ -78,73 +72,166 @@
       float: left;
       margin: 0 20px 15px 0;
       border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    .media-left:hover{
-        transform: scale(1.05);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-        transition: transform 0.3 ease, box-shadow 0.3 ease;
+    .media-left:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
-
     .post {
       margin-bottom: 40px;
       overflow: auto;
+      position: relative;
+    }
+    .media-info {
+      margin-top: 10px;
+      font-style: italic;
+      color: #555;
+      display: none;
+      max-width: 350px;
+      clear: both;
+    }
+    .clickable-media {
+      cursor: pointer;
+    }
+
+    #js-demo-buttons {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
- 
+
   <div class="blog-name">Travel Blog</div>
- 
+
   <div class="navbar">
     <a href="Home.html" class="button">Home</a>
     <a href="Blog.html" class="button">Blog</a>
     <a href="About.html" class="button">About</a>
     <a href="Contact.html" class="button">Contact</a>
   </div>
- 
+
   <div class="content">
+
+    <!-- JS demo buttons -->
+    <div id="js-demo-buttons">
+      <button class="js-button" id="btnGreet">Say Hello</button>
+      <button class="js-button" id="btnMoodCheck">Check Travel Mood</button>
+      <button class="js-button" id="btnTripsSummary">Show Trips Summary</button>
+    </div>
+
     <p>Check out my latest adventures!</p>
- 
+
+    <!-- Posts with clickable media and extra info -->
     <div class="post">
-      <img src="Photo1.jpg" class="media-left" alt="Photo">
+      <img src="Photo1.jpg" class="media-left clickable-media" alt="Photo" data-info="The Floating Isles are magical drifting islands with glowing birds and hidden cultures." />
       <p>
         <span class="quote-title">“Journey to the Floating Isles”</span>
         Imagine a world where islands drift lazily across a vast, endless ocean. Each isle holds a unique culture, hidden treasures, and mystical creatures. Wander through skies filled with glowing birds and explore lands untouched by time.
       </p>
+      <div class="media-info"></div>
     </div>
- 
+
     <div class="post">
-      <img src="Photo2.jpg" class="media-left" alt="Photo">
+      <img src="Photo2.jpg" class="media-left clickable-media" alt="Photo" data-info="The Starlit Desert shimmers with stardust and nomadic constellations." />
       <p>
         <span class="quote-title">“Starlit Desert of Eldara”</span>
         Cross the vast Eldara desert where the sands shimmer like stardust under the night sky. Ride with nomads who navigate by constellations and uncover oasis cities where the stars touch the earth in pools of liquid light.
       </p>
+      <div class="media-info"></div>
     </div>
- 
+
     <div class="post">
-      <img src="Photo3.jpg" class="media-left" alt="Photo">
+      <img src="Photo3.jpg" class="media-left clickable-media" alt="Photo" data-info="Crystal Caves sparkle with ancient magic and glowing gems." />
       <p>
         <span class="quote-title">“The Crystal Caves of Lumora”</span>
         Beneath the mountains of Lumora lie caves sparkling with crystals that hum with ancient magic. Travel deep into these glowing tunnels where light dances and shadows tell forgotten stories, and where every step feels like walking inside a living gemstone.
       </p>
+      <div class="media-info"></div>
     </div>
- 
+
     <div class="post">
-      <video src="Video1.mp4" controls class="media-left"></video>
+      <video src="Video1.mp4" controls class="media-left clickable-media" data-info="The Underwater Kingdom of Marelia features coral cities and merfolk adventures." ></video>
       <p>
         <span class="quote-title">“The Underwater Kingdom of Marelia”</span>
         Dive into Marelia, a kingdom beneath turquoise waves where cities of coral and pearl rise from the ocean floor. Swim alongside merfolk and explore underwater gardens glowing with bioluminescent life.
       </p>
+      <div class="media-info"></div>
     </div>
- 
+
     <div class="post">
-      <video src="Video2.mp4" controls class="media-left"></video>
+      <video src="Video2.mp4" controls class="media-left clickable-media" data-info="Cloud Cities of Aetheria float above the earth, powered by ancient technology." ></video>
       <p>
         <span class="quote-title">“Cloud Cities of Aetheria”</span>
         Take flight to Aetheria, where cities float among the clouds on giant platforms held aloft by ancient technology. Explore sky markets, meet airship pilots, and gaze upon endless horizons that blend sea, sky, and dreams.
       </p>
+      <div class="media-info"></div>
     </div>
   </div>
+
+  <script>
+    // Variables
+    let travelMood = "adventurous"; // will update dynamically
+    const moods = ["adventurous", "relaxed", "curious"];
+    let currentMoodIndex = 0;
+
+    const favoriteTrips = [
+      { place: "Floating Isles", year: 2021, highlight: "sky-glowing birds", fun: true },
+      { place: "Starlit Desert", year: 2020, highlight: "constellation navigation", fun: true },
+      { place: "Crystal Caves", year: 2019, highlight: "ancient magic crystals", fun: false },
+      { place: "Underwater Kingdom", year: 2023, highlight: "swimming with merfolk", fun: true },
+      { place: "Cloud Cities", year: 2022, highlight: "sky markets", fun: true },
+    ];
+
+    function greetUser() {
+      const visitorName = prompt("What's your name?", "Traveler");
+      if (visitorName && visitorName.trim() !== "") {
+        alert(`Hello, ${visitorName}! Welcome to my travel blog!`);
+      } else {
+        alert("Hello, Traveler! Welcome to my travel blog!");
+      }
+    }
+
+    function checkMood() {
+      travelMood = moods[currentMoodIndex];
+      if (travelMood === "adventurous") {
+        alert("I'm feeling adventurous and ready for wild explorations!");
+      } else if (travelMood === "relaxed") {
+        alert("I'm in a relaxed mood, enjoying peaceful escapes.");
+      } else {
+        alert("I'm curious today, eager to discover new things.");
+      }
+      currentMoodIndex = (currentMoodIndex + 1) % moods.length;
+    }
+
+    function showTripsSummary() {
+      let summary = "My favorite trips:\n";
+      for (let i = 0; i < favoriteTrips.length; i++) {
+        let trip = favoriteTrips[i];
+        summary += `${trip.place} (${trip.year}) - Highlight: ${trip.highlight}\n`;
+      }
+      alert(summary);
+    }
+
+    document.getElementById("btnGreet").onclick = greetUser;
+    document.getElementById("btnMoodCheck").onclick = checkMood;
+    document.getElementById("btnTripsSummary").onclick = showTripsSummary;
+
+    const medias = document.querySelectorAll(".clickable-media");
+    medias.forEach(media => {
+      media.addEventListener("click", () => {
+        const infoBox = media.closest(".post").querySelector(".media-info");
+        if (infoBox.style.display === "block") {
+          infoBox.style.display = "none";
+        } else {
+          infoBox.textContent = media.dataset.info || "More info not available.";
+          infoBox.style.display = "block";
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

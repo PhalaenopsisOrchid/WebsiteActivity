@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Travel Blog</title>
   <style>
     body {
@@ -115,7 +115,7 @@
  
   <div class="content">
     <h2>Contact Me</h2>
-    <form action="#" method="post">
+    <form id="contactForm" action="#" method="post">
       <label for="name">Your Name</label>
       <input type="text" id="name" name="name" placeholder="Enter your name" required>
  
@@ -128,6 +128,20 @@
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
   </div>
- 
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const visitorName = document.getElementById('name').value.trim();
+      if(visitorName === "") {
+        alert("Please enter your name.");
+        return;
+      }
+      alert(`Thank you, ${visitorName}! Your message has been received.`);
+      form.reset();
+    });
+  </script>
 </body>
 </html>
